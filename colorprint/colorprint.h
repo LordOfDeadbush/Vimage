@@ -54,6 +54,7 @@ class pixel : public colorPrint {
     public:
     string c = "  ";
     pixel(int r, int g, int b) : colorPrint(r, g, b) {};
+    pixel() : colorPrint(0, 0, 0) {};
     friend ostream& operator<<(ostream& os, pixel& p) {
         os << p.to_string() << p.c << END_COLOR;
         return os;
