@@ -29,15 +29,15 @@ class colorPrint {
     int b = 0;
     int t = 255;
     colorPrint(int r, int g, int b, int t = 255) {
-        if (r < 0 || r > MAX_VAL) {
-            throw "r must be between 0 and " + std::to_string(MAX_VAL);
-        }
-        if (g < 0 || g > MAX_VAL) {
-            throw "g must be between 0 and 7" + std::to_string(MAX_VAL);
-        }
-        if (b < 0 || b > MAX_VAL) {
-            throw "b must be between 0 and 7" + std::to_string(MAX_VAL);
-        }
+        // if (r < 0 || r > MAX_VAL) {
+        //     throw "r must be between 0 and " + std::to_string(MAX_VAL);
+        // }
+        // if (g < 0 || g > MAX_VAL) {
+        //     throw "g must be between 0 and 7" + std::to_string(MAX_VAL);
+        // }
+        // if (b < 0 || b > MAX_VAL) {
+        //     throw "b must be between 0 and 7" + std::to_string(MAX_VAL);
+        // }
         this->r = r;
         this->g = g;
         this->b = b;
