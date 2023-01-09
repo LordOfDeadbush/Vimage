@@ -5,9 +5,10 @@
 
 using namespace std;
 
-int main() {
+int main(int argc, char** argv) {
+    const char *filename = argc > 1 ? argv[1] : "lodepng/png.png";
     int width, height;
-    vector<int> png_vector = loadPng("lodepng/png.png", width, height);
+    vector<int> png_vector = loadPng(filename, width, height);
     image img(width, height);
     for (size_t i = 0; i < img.get_height(); i++) {
         for (size_t j = 0; j < img.get_width(); j++) {
