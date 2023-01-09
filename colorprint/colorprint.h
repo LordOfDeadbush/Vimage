@@ -27,7 +27,8 @@ class colorPrint {
     int r = 0;
     int g = 0;
     int b = 0;
-    colorPrint(int r, int g, int b) {
+    int t = 255;
+    colorPrint(int r, int g, int b, int t = 255) {
         if (r < 0 || r > MAX_VAL) {
             throw "r must be between 0 and " + std::to_string(MAX_VAL);
         }
@@ -40,20 +41,25 @@ class colorPrint {
         this->r = r;
         this->g = g;
         this->b = b;
+        this->t = t;
     }
     string to_string() {
-        return "\033[48;2;"+std::to_string(r)+";"+std::to_string(g)+";"+std::to_string(b)+"m";
+        return "\033[48;2;"+std::to_string(r * t / 255)+";"+std::to_string(g * t / 255)+";"+std::to_string(b * t / 255)+"m";
     }
     friend ostream& operator<<(ostream& os, colorPrint& c) {
         os << c.to_string();
         return os;
+    }
+
+    vector<int> to_vector() {
+        return {r, g, b, t};
     }
 };
 
 class pixel : public colorPrint {
     public:
     string c = "  ";
-    pixel(int r, int g, int b) : colorPrint(r, g, b) {};
+    pixel(int r, int g, int b, int h = 0) : colorPrint(r, g, b, h) {};
     pixel() : colorPrint(0, 0, 0) {};
     friend ostream& operator<<(ostream& os, pixel& p) {
         os << p.to_string() << p.c << END_COLOR;

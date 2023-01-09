@@ -39,4 +39,15 @@ class image {
     }
     int get_width() { return width; }
     int get_height() { return height; }
+    vector<int> to_vector() {
+        vector<int> png_vector;
+        for (vector<pixel> i : pixelArr) {
+            for (pixel j : i) {
+                for (int k : j.to_vector()) {
+                    png_vector.push_back(k);
+                }
+            }
+        }
+        return png_vector;
+    }
 };
