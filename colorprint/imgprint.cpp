@@ -1,11 +1,12 @@
+// THIS CODE MAKES A *RAINBOW*
 #include <iostream>
-// #include "colorprint.h"
 #include "imgprint.h"
 
 using namespace std;
 
 int main() {
-    image img(64, 64);
+    int x = 16;
+    image img(x, x);
     for (size_t i = 0; i < img.get_height(); i++) {
         for (size_t j = 0; j < img.get_width(); j++) {
             int r = (img.get_height() - i) * 255 / img.get_height();
